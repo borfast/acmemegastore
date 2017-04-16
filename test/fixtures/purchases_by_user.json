@@ -1,0 +1,52 @@
+{
+  "purchases": [
+    {
+      "id": 586179,
+      "username": "Morgan_Barton",
+      "product_id": 637806,
+      "date": "2016-09-06T14:39:01.076Z"
+    },
+    {
+      "id": 198108,
+      "username": "Morgan_Barton",
+      "product_id": 96195,
+      "date": "2016-09-01T01:22:03.080Z"
+    },
+    {
+      "id": 941573,
+      "username": "Morgan_Barton",
+      "product_id": 187478,
+      "date": "2016-08-31T08:22:12.081Z"
+    },
+    {
+      "id": 14312,
+      "username": "Morgan_Barton",
+      "product_id": 469837,
+      "date": "2016-09-07T01:33:15.081Z"
+    },
+    {
+      "id": 275312,
+      "username": "Morgan_Barton",
+      "product_id": 187478,
+      "date": "2016-08-31T08:35:53.082Z"
+    },
+    {
+      "id": 961045,
+      "username": "Morgan_Barton",
+      "product_id": 881201,
+      "date": "2016-09-02T14:54:23.082Z"
+    },
+    {
+      "id": 706224,
+      "username": "Morgan_Barton",
+      "product_id": 278646,
+      "date": "2016-09-03T03:15:29.082Z"
+    },
+    {
+      "id": 540751,
+      "username": "Morgan_Barton",
+      "product_id": 380117,
+      "date": "2016-08-29T07:14:29.082Z"
+    }
+  ]
+}

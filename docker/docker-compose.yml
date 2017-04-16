@@ -1,0 +1,30 @@
+version: '2'
+services:
+  acmemegastore_base:
+    build:
+      context: ../
+      dockerfile: ./docker/Dockerfile
+  acmemegastore_data:
+    build:
+      context: ../
+      dockerfile: ./docker/data/Dockerfile
+    ports:
+    - "8085:8085"
+    volumes:
+    - ..:/code
+    links:
+    - acmemegastore_web
+    - acmemegastore_base
+  acmemegastore_web:
+    build:
+      context: ../
+      dockerfile: ./docker/web/Dockerfile
+    ports:
+    - "8080:8080"
+    volumes:
+    - ..:/code
+    links:
+    - acmemegastore_redis
+    - acmemegastore_base
+  acmemegastore_redis:
+    image: redis:alpine

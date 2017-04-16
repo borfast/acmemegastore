@@ -1,0 +1,7 @@
+-r base.txt
+
+asynctest == 0.10.0
+coverage == 4.3.4
+pytest == 3.0.7
+pytest-aiohttp == 0.1.3
+pytest-sugar == 0.8.0

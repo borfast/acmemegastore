@@ -1,0 +1,162 @@
+[
+  {
+    "purchases": [
+      {
+        "id": 586179,
+        "username": "Morgan_Barton",
+        "product_id": 637806,
+        "date": "2016-09-06T14:39:01.076Z"
+      },
+      {
+        "id": 528830,
+        "username": "Felicia44",
+        "product_id": 637806,
+        "date": "2016-08-27T05:50:21.084Z"
+      }
+    ]
+  },
+  {
+    "purchases": [
+      {
+        "id": 198108,
+        "username": "Morgan_Barton",
+        "product_id": 96195,
+        "date": "2016-09-01T01:22:03.080Z"
+      },
+      {
+        "id": 487110,
+        "username": "London.Keebler",
+        "product_id": 96195,
+        "date": "2016-08-28T19:19:43.084Z"
+      },
+      {
+        "id": 110048,
+        "username": "Aida_Conroy71",
+        "product_id": 96195,
+        "date": "2016-09-04T15:07:32.084Z"
+      },
+      {
+        "id": 366379,
+        "username": "Aida_Conroy71",
+        "product_id": 96195,
+        "date": "2016-09-05T09:52:16.085Z"
+      }
+    ]
+  },
+  {
+    "purchases": [
+      {
+        "id": 941573,
+        "username": "Morgan_Barton",
+        "product_id": 187478,
+        "date": "2016-08-31T08:22:12.081Z"
+      },
+      {
+        "id": 275312,
+        "username": "Morgan_Barton",
+        "product_id": 187478,
+        "date": "2016-08-31T08:35:53.082Z"
+      },
+      {
+        "id": 542521,
+        "username": "Zula.Kilback",
+        "product_id": 187478,
+        "date": "2016-09-01T12:01:38.082Z"
+      },
+      {
+        "id": 403465,
+        "username": "Adalberto_Hamill",
+        "product_id": 187478,
+        "date": "2016-09-01T00:14:24.085Z"
+      }
+    ]
+  },
+  {
+    "purchases": [
+      {
+        "id": 14312,
+        "username": "Morgan_Barton",
+        "product_id": 469837,
+        "date": "2016-09-07T01:33:15.081Z"
+      },
+      {
+        "id": 686395,
+        "username": "Felicia44",
+        "product_id": 469837,
+        "date": "2016-09-03T10:37:18.084Z"
+      }
+    ]
+  },
+  {
+    "purchases": [
+      {
+        "id": 961045,
+        "username": "Morgan_Barton",
+        "product_id": 881201,
+        "date": "2016-09-02T14:54:23.082Z"
+      },
+      {
+        "id": 750908,
+        "username": "Rodrigo91",
+        "product_id": 881201,
+        "date": "2016-09-05T19:34:35.083Z"
+      },
+      {
+        "id": 658088,
+        "username": "London.Keebler",
+        "product_id": 881201,
+        "date": "2016-08-29T22:36:56.084Z"
+      },
+      {
+        "id": 517935,
+        "username": "Adalberto_Hamill",
+        "product_id": 881201,
+        "date": "2016-09-01T03:41:38.085Z"
+      },
+      {
+        "id": 981292,
+        "username": "Adalberto_Hamill",
+        "product_id": 881201,
+        "date": "2016-08-31T19:58:28.085Z"
+      }
+    ]
+  },
+  {
+    "purchases": [
+      {
+        "id": 706224,
+        "username": "Morgan_Barton",
+        "product_id": 278646,
+        "date": "2016-09-03T03:15:29.082Z"
+      },
+      {
+        "id": 734683,
+        "username": "Zula.Kilback",
+        "product_id": 278646,
+        "date": "2016-09-02T19:57:41.082Z"
+      },
+      {
+        "id": 954903,
+        "username": "Gina_Kautzer",
+        "product_id": 278646,
+        "date": "2016-08-28T12:29:53.083Z"
+      },
+      {
+        "id": 386303,
+        "username": "Gina_Kautzer",
+        "product_id": 278646,
+        "date": "2016-08-29T13:22:09.083Z"
+      }
+    ]
+  },
+  {
+    "purchases": [
+      {
+        "id": 540751,
+        "username": "Morgan_Barton",
+        "product_id": 380117,
+        "date": "2016-08-29T07:14:29.082Z"
+      }
+    ]
+  }
+]

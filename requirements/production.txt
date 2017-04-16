@@ -1,0 +1,5 @@
+# Ideally, production.txt should have no dependencies that are not in dev.txt
+# but if necessary, add them here (e.g., packages specific to the hosting
+# environment, like storage backends).
+
+-r base.txt
