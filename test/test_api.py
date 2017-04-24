@@ -3,6 +3,7 @@ import json
 from http.client import InvalidURL
 from urllib.parse import parse_qs, urlsplit
 
+import pytest
 from aiohttp.test_utils import unittest_run_loop
 from asynctest import CoroutineMock
 
@@ -13,18 +14,8 @@ from test.AcmeMegastoreTestCase import AcmeMegastoreTestCase
 class TestApi(AcmeMegastoreTestCase):
 
     def test_call_api_with_inexistent_path(self):
-        """
-        If the API wrapper doesn't recognize the called method, it should
-        raise an exception. Neat little trick: using just self.api.foo here
-        would result in an exception being thrown but not caught by
-        unittest, because self.api.foo would have to be evaluated before the
-        call to assertRaises and thus it would never catch it. Instead,
-        we delay its evaluation by using a lambda. Pretty cool, huh? :-)
-        We could also use a context manager:
-          with self.assertRaises(InvalidURL):
-              self.api.foo()
-        """
-        self.assertRaises(InvalidURL, lambda: self.api.foo)
+        with pytest.raises(InvalidURL):
+            self.api.foo()
 
     def test_build_url(self):
         path = 'purchases_by_user'
@@ -42,14 +33,14 @@ class TestApi(AcmeMegastoreTestCase):
 
         parsed = urlsplit(url)
 
-        self.assertEqual(parsed.path, '/api/' + self.api._paths[path].format(
-            username=user))
+        assert parsed.path == '/api/' + self.api._paths[path].format(
+            username=user)
 
         p = parse_qs(parsed.query)
-        self.assertDictEqual(p, {'limit': ['10'], 'games': ['yes']})
+        assert p == {'limit': ['10'], 'games': ['yes']}
 
         result = parsed.scheme + '://' + parsed.netloc + '/api/'
-        self.assertEqual(result, self.config['API_BASE_URL'])
+        assert result == self.config['API_BASE_URL']
 
     def test_build_url_with_no_params(self):
         """
@@ -62,7 +53,7 @@ class TestApi(AcmeMegastoreTestCase):
         parsed = urlsplit(url)
 
         p = parse_qs(parsed.query)
-        self.assertDictEqual(p, {})
+        assert p == {}
 
     @unittest_run_loop
     async def test_cache(self):
@@ -102,7 +93,7 @@ class TestApi(AcmeMegastoreTestCase):
 
         result = await self.api.purchases_by_user(params, username=user)
 
-        self.assertEqual(result, json.loads(text))
+        assert result == json.loads(text)
 
         path = self.api._paths['purchases_by_user'].format(username=user)
         url = self.config['API_BASE_URL'] + path + '?limit=10'
@@ -117,5 +108,5 @@ class TestApi(AcmeMegastoreTestCase):
         product_id = 10
         params = {'limit': 10}
 
-        with self.assertRaises(ApiError):
+        with pytest.raises(ApiError):
             await self.api.purchases_by_product(params, product_id=product_id)
