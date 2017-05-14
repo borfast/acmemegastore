@@ -30,7 +30,10 @@ def config():
 
 @pytest.fixture
 def http():
-    return AsyncHttpClient()
+    result_http = AsyncHttpClient()
+    result_http.get = CoroutineMock()
+
+    return result_http
 
 
 @pytest.fixture
@@ -41,6 +44,7 @@ def cache():
 @pytest.fixture
 def api(config, http, cache, purchases_by_user, purchases_by_product,
         products):
+    """ TODO: For some reason it's not working, will have to debug later. """
     result_api = Api(config, http, cache)
     result_api.purchases_by_user = CoroutineMock()
     result_api.purchases_by_product = CoroutineMock()
