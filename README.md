@@ -1,10 +1,8 @@
-# Sample project
-
 This is a small sample project I made in the past for a job application. I
 decided to publish it on Github, so I cleaned it up, updated it and changed
 it so it's not easily found by other applicants trying to cheat.
 
-It implements a new feature for the imaginary Acme Megastore ecommerce
+It implements a new feature for the imaginary Acme Megastore e-commerce
 platform. It produces a list of popular purchases, so customers can see who
 else bought the same products as them.
 
@@ -12,16 +10,16 @@ It accepts HTTP requests to `/api/recent_purchases/:username` and responds
 with a list of recently purchased products, and the names of other users who
 recently purchased them.
 
-Originally, data about users, products and purchases was available via an
-external API, referred to as "data API", provided to me in an outside server.
+Originally, data about users, products, and purchases was available via an
+external API referred to as "data API", provided to me by an outside server.
 In order to openly publish the code without revealing the company and
 without depending on their server, I reimplemented the data API using Flask.
 All its code is in `acme/data`, specifically the `acme/data/data_server.py`
 file. In order to simulate network latency and show caching in effect, the
 data API delays its response by a random amount. A full reference for the
 data API is available in `doc/data_api.md`. If you run `docker-composer up`,
-a container running it will be launched for you. For now there are no tests
-for the data API, since it wasn't something I wrote for the original
+a container running it will be launched for you. For now, there are there are
+no tests for the data API since it wasn't something I wrote for the original
 submission. I might add them later.
 
 There were two specific details requested:
@@ -82,7 +80,7 @@ dependencies into an object or function instead of creating them in it, or
 letting it find the dependency), unit tests, etc.
 
 One of the advantages of DI is that it allows for much easier isolated testing
-and as such I also wrote a few tests. I didn't aim for 100% coverage but the
+and as such, I also wrote a few tests. I didn't aim for 100% coverage but the
 tests I wrote should be enough for demonstration purposes.  In a real project
 I would aim for much higher test coverage.
 
@@ -99,7 +97,7 @@ classes to save time.
 
 Asyncio and aiohttp were used for the implementation because Acme Megastore's
 business is clearly growing at an unprecedented pace and their
-ecommerce platform will need to be able to handle many concurrent users, a
+e-commerce platform will need to be able to handle many concurrent users, a
 goal which is better served by an asynchronous server than traditional
 blocking code. Plus, it's more impressive than just plain-old blocking code
 and thus I can show off a little more. :-)
@@ -130,7 +128,7 @@ of how things are organised.
 
 ### `.env`
 
-In the project root there is a file called `.env`, which contains
+In the project root, there is a file called `.env`, which contains
 configuration values necessary for the application. Their names should be
 self-explanatory. The application reads this file and converts the names and
 values in it into environment variables, which it then uses for its
@@ -143,12 +141,12 @@ the applications. It also allows you to keep configuration separated from
 the code, making it safer (no credentials to be compromised) and easier to
 scale or move the application to more or different servers.
 
-In a real project this file would not be distributed, in order not to spread
+In a real project, this file would not be distributed, in order not to spread
 sensitive information and to prevent potentially causing trouble among
 developers due to each one probably requiring different settings for local
 development. Instead, a file called `.env-dist`, for example, would be part
 of the project just to specify which variable names should be set (no values
-in there) and for local development each developer could set their own values
+in there) and for local development, each developer could set their own values
 in a `.env`file of their own, which should be added to `.gitignore`.
 
 ### `requirements.txt` and the `requirements` folder
@@ -159,7 +157,7 @@ track of all their dependencies. For projects with separate environments
 from the local development requirements - e.g. there's no reason to install
 the unittest package in production.
 
-The `requirements` directory contains three files: `base.txt`, `dev.txt` and
+The `requirements` directory contains three files: `base.txt`, `local.txt` and
 `production.txt`. More can be added as necessary, i.e. `staging.txt`.
 
 The file `base.txt` contains the dependencies which are common to all
@@ -213,8 +211,8 @@ before instantiating `Megastore` I create instances of those classes (`Api`,
 `AsyncHttpClient`, `RedisCache`, etc) and pass them where necessary.
 
 Note that `server.py` is where all the dependencies are created. No
-dependency creation occurs within other classes. For bigger projects a
-dependency injection framework may be useful but in this case it would be
+dependency creation occurs within other classes. For bigger projects, a
+dependency injection framework may be useful but in this case, it would be
 overkill.
 
 ## Assumptions and shortcuts
@@ -327,9 +325,9 @@ execute `pip install -r requirements.txt`.
 If you want to run the supplied unit tests you need to install additional
 dependencies: `pip install -r requirements/dev.txt`. This will install all
 the regular dependencies plus the ones needed for running the tests. The
-tests can then be run with `python -m unittest`. As stated above, it is not
-required to have Redis running nor access to the data API, since these
-services are all mocked in the tests.
+tests can then be run with `pytest`. As stated above, it is not required to 
+have Redis running nor access to the data API, since these services are all 
+mocked.
 
 When you're done, you can delete the virtualenv with this command:
 `pyenv virtualenv-delete acmemegastore`
