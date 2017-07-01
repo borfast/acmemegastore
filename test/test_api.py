@@ -54,7 +54,6 @@ def test_build_url_with_no_params(api):
     assert p == {}
 
 
-@pytest.mark.asyncio
 async def test_cache(config, http, cache):
     """
     Make sure an API method, when called more than once with the same
@@ -77,7 +76,6 @@ async def test_cache(config, http, cache):
     api.http.get.assert_called_once_with(url)
 
 
-@pytest.mark.asyncio
 async def test_failing_api_call(config, http, cache):
     http.get = CoroutineMock()
     http.get.return_value = {'status': 500}
