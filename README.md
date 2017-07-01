@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/borfast/acmemegastore.svg?branch=master)](https://travis-ci.org/borfast/acmemegastore)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/borfast/acmemegastore/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/borfast/acmemegastore/?branch=master)
+
 This is a small sample project I made in the past for a job application. I
 decided to publish it on Github, so I cleaned it up, updated it and changed
 it so it's not easily found by other applicants trying to cheat.
