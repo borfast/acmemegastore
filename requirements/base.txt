@@ -5,4 +5,4 @@ python-dotenv == 0.6.4
 aioredis == 0.3.1
 faker == 0.7.12 # Used for the data generator
 arrow == 0.10.0
-flask == 0.12.1
+flask==0.12.2
