@@ -1,6 +1,6 @@
 aiohttp == 2.0.7
 uvloop == 0.8.0
-cchardet == 2.0.1 # faster replacement for chardet, a requirement of aiohttp
+cchardet==2.1.1 # faster replacement for chardet, a requirement of aiohttp
 python-dotenv == 0.6.4
 aioredis == 0.3.1
 faker == 0.7.12 # Used for the data generator
