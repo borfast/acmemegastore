@@ -1,8 +1,8 @@
 aiohttp==2.2.5
 uvloop == 0.8.0
 cchardet == 2.1.1 # faster replacement for chardet, a requirement of aiohttp
-python-dotenv==0.6.5
+python-dotenv==0.7.1
 aioredis == 0.3.3
-faker==0.8.1 # Used for the data generator
+faker==0.8.3 # Used for the data generator
 arrow == 0.10.0
 flask == 0.12.2
