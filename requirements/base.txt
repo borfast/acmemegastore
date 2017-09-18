@@ -1,5 +1,5 @@
 aiohttp==2.2.5
-uvloop == 0.8.0
+uvloop==0.8.1
 cchardet == 2.1.1 # faster replacement for chardet, a requirement of aiohttp
 python-dotenv==0.6.5
 aioredis == 0.3.3
