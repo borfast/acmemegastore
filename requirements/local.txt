@@ -1,6 +1,6 @@
 -r base.txt
 
-asynctest==0.10.1
+asynctest==0.11.0
 coverage == 4.4.1
 pytest==3.2.3
 pytest-aiohttp == 0.1.3
