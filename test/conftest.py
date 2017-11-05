@@ -1,10 +1,8 @@
 # coding=utf-8
-import asyncio
 import json
 import os
 
 import pytest
-import uvloop
 from aiohttp import web
 from asynctest import CoroutineMock
 
@@ -12,12 +10,6 @@ from acme.api import Api
 from acme.asynchttpclient import AsyncHttpClient
 from acme.cache import MemoryCache
 from acme.megastore import Megastore
-
-
-@pytest.fixture(scope='session', autouse=True)
-def setup_loop():
-    """ Use the same event loop we will use in production. """
-    asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
 
 
 @pytest.fixture(scope='session')
@@ -62,8 +54,8 @@ def handler(config, api, loop):
 
 
 @pytest.fixture
-def app(loop, handler):
-    application = web.Application(loop=loop)
+def app(handler):
+    application = web.Application()
 
     application.router.add_route('get', '/api/recent_purchases/{username}',
                                  handler.recent_purchases)
