@@ -87,6 +87,7 @@ def purchases_by_product(product_id):
     p = get_items_by_filter('purchases', 'product_id', product_id)
     return get_purchases(p)
 
+
 if __name__ == "__main__":
     data = load_data()
     app.before_request(lambda: sleep(random_uniform(0.5, 1)))

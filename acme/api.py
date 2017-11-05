@@ -15,7 +15,8 @@ class Api:
     A wrapper for the data API.
     """
 
-    def __init__(self, config: dict, http: AsyncHttpClient, cache: AbstractCache):
+    def __init__(self, config: dict, http: AsyncHttpClient,
+                 cache: AbstractCache):
         # Group the API paths here so we don't have to repeat them
         # everywhere and risk causing problems by trying to access a wrong
         # path.

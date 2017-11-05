@@ -9,9 +9,9 @@ class AsyncHttpClient:
     In case you're wondering why we don't use something like the
     excellent requests library, it's simple: it's not asynchronous and thus
     would block when fetching data from the data API, which would negate all
-    the work of using aiohttp / asyncio and its benefits. We could probably 
-    still use it but we would have to use an executor from 
-    concurrent.futures but for demonstration purposes it's not worth the 
+    the work of using aiohttp / asyncio and its benefits. We could probably
+    still use it but we would have to use an executor from
+    concurrent.futures but for demonstration purposes it's not worth the
     effort.
     """
     async def get(self, url: str) -> dict:

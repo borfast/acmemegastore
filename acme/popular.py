@@ -42,7 +42,7 @@ class Popular:
 
     async def _product_info(self, product_id: int) -> dict:
         """
-        Executes the two API calls in parallel and waits for them both to 
+        Executes the two API calls in parallel and waits for them both to
         finish. The sequential way of doing it would be this:
          purchases = await self.api.purchases_by_product(product_id=product_id)
          product = await self.api.products(product_id=product_id)
