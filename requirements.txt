@@ -1,5 +1,0 @@
-# Having this file here allows us to deploy the project into services like
-# Heroku, which look for a requirements.txt in the root directory of the
-# project, while keeping separate dependencies for local development.
-
--r requirements/production.txt
