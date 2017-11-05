@@ -21,13 +21,13 @@ flask = "*"
 
 asynctest = "*"
 coverage  = "*"
+flake8 = "*"
 pytest = "*"
 pytest-aiohttp = "*"
 pytest-asyncio = "*"
 pytest-sugar = "*"
 pytest-cov = "*"
 pytest-xdist = "*"
-
 
 [requires]
 

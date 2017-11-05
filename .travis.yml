@@ -4,4 +4,8 @@ python:
 install:
   - "pip install pipenv"
   - "pipenv install --dev --system"
-script: python -m pytest
+script:
+script:
+  - flake8
+  - coverage run --include=./* --omit=test/* -m pytest
+  - coverage report
