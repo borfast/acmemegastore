@@ -2,10 +2,10 @@ language: python
 python:
   - "3.6"
 install:
-  - "pip install pipenv"
-  - "pipenv install --dev --system"
-script:
+  - pip install pipenv
+  - pipenv install --dev
 script:
   - flake8
   - coverage run --include=./* --omit=test/* -m pytest
-  - coverage report
+  - coverage xml
+  - python-codacy-coverage -r coverage.xml
