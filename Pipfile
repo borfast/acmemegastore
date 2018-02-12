@@ -20,7 +20,7 @@ flask = "*"
 [dev-packages]
 
 asynctest = "*"
-coverage  = "*"
+coverage = "*"
 flake8 = "*"
 pytest = "*"
 pytest-aiohttp = "*"
@@ -28,6 +28,7 @@ pytest-asyncio = "*"
 pytest-sugar = "*"
 pytest-cov = "*"
 pytest-xdist = "*"
+codacy-coverage = "*"
 
 [requires]
 
