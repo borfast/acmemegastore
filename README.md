@@ -130,60 +130,31 @@ This is not meant to be an exhaustive description of each file and
 directory, just a brief overview of the non-obvious, most important files and
 of how things are organised.
 
-### `.env`
+### Environment variables
 
-In the project root, there is a file called `.env`, which contains
-configuration values necessary for the application. Their names should be
-self-explanatory. The application reads this file and converts the names and
-values in it into environment variables, which it then uses for its
-configuration.
+The application reads some configuration values from environment variables.
+
+In order to make it easier to set up, it can also read the necessary values 
+from a `.env` file in the project root. This file does not exist in the 
+repository, since it's unique to each system it will run on. 
+ 
+There is a file called `dot_env_example` which you can use as a base to 
+create your own `.env`. The variable names should be self-explanatory.
 
 Fetching configuration data from environment variables allows the
 application to run seamlessly on platforms such as Heroku,
 which use environment variables to pass configuration settings to
-the applications. It also allows you to keep configuration separated from
-the code, making it safer (no credentials to be compromised) and easier to
-scale or move the application to more or different servers.
+the applications. It also allows you to create custom Docker images more 
+easily without having to hard-code any settings. Finally, it allows you
+to keep configuration separated from the code, making it safer (no 
+credentials to be compromised) and easier to scale or move the application 
+to more or different servers.
 
-In a real project, this file would not be distributed, in order not to spread
-sensitive information and to prevent potentially causing trouble among
-developers due to each one probably requiring different settings for local
-development. Instead, a file called `.env-dist`, for example, would be part
-of the project just to specify which variable names should be set (no values
-in there) and for local development, each developer could set their own values
-in a `.env`file of their own, which should be added to `.gitignore`.
+### Dependencies and Pipenv
 
-### `requirements.txt` and the `requirements` folder
-
-Typically, small Python projects use a single `requirements.txt` file to keep
-track of all their dependencies. For projects with separate environments
-(i.e. dev, prod, staging, etc) I prefer to separate the production requirements
-from the local development requirements - e.g. there's no reason to install
-the unittest package in production.
-
-The `requirements` directory contains three files: `base.txt`, `local.txt` and
-`production.txt`. More can be added as necessary, i.e. `staging.txt`.
-
-The file `base.txt` contains the dependencies which are common to all
-environments.
-
-`dev.txt` requires `base.txt` to get the common dependencies and adds the
-necessary packages for local development, like unit test packages.
-
-`production.txt` should ideally just require `base.txt` and have no extra
-dependencies, since that would mean the production environment would have
-dependencies not present in the local development environment, and thus it
-could behave differently than expected. Still, if necessary, they can be added
-here.
-
-The `requirements.txt` file in the project root simply contains an instruction
-to require `requirements/production.txt`. This allows us to deploy the project
-to services like Heroku, which look for a requirements.txt in the root
-directory of the project, while keeping separate dependencies for local
-development.
-
-For a local development environment, dependencies can be installed by
-running `pip install -r requirements/dev.txt`.
+This project uses [Pipfile](https://github.com/pypa/pipfile) to declare its 
+dependencies. You can install them using [Pipenv](http://pipenv.org/) (see 
+the "Installing Python 3.6" section further down for details).
 
 ### `fixtures` and `test` directories
 
@@ -291,50 +262,29 @@ systems our-of-the-box), Redis and a few Python packages.
 
 #### Installing Python 3.6
 
-You need PYthon 3.5 or newer because of the async/await syntax which is only
-available from 3.5.
+You need Python 3.5 or newer because of the async/await syntax which is only
+available from 3.5 and later.
 
-To install Python I strongly recommend using pyenv and for the remainder of
-these instructions I assume you are using it:
-https://github.com/yyuu/pyenv#installation
-
-Pyenv allows you to have multiple Python versions installed in your system
-without conflicting with one another. It also has some useful companion
-tools that can be installed with it to make things easier, like managing
-virtualenvs and shell auto-completion.
-
-I suggest you use the automatic installer, since it installs pyenv and its
-companion tools for you, as well as a handy `pyenv update` command.
+To install Python I strongly recommend using
+[pyenv](https://github.com/yyuu/pyenv) and for the remainder of these 
+instructions I assume you are using it. I suggest you use the automatic 
+installer, since it installs pyenv and its companion tools for you, as well 
+as a handy `pyenv update` command. Pyenv allows you to have multiple Python 
+versions installed in your system without conflicting with one another.
 
 After having pyenv installed you need to install Python 3.5 or newer. At the
-time of writing the most recent version is 3.6.1 and I will assume that's
-the version you will use. You can install it with `pyenv install 3.6.1`.
-After installing Python (might take a few minutes), I suggest you create a
-virtualenv to keep the project packages separate from other stuff you might
-have: `pyenv virtualenv 3.6.1 acmemegastore`
+time of writing the most recent version is 3.6.4 and I will assume that's
+the version you will use. You can install it with `pyenv install 3.6.4`. 
+This might take a few minutes.
 
-Pyenv allows you to set the Python version for a current shell or a current
-directory without affecting anything else. We want the latter.
+Now you can ask Pipenv to install the project dependencies by running 
+`pipenv install --python 3.6.4` if you want only the production dependencies,
+or  `pipenv install --dev --python 3.6.4` if you want local development and 
+testing dependencies.
 
-To get pyenv to set the Python version to use inside the project directory
-you can navigate into it and enter `pyenv local acmemegastore`. This will
-create a file called `.python-version` in the project root, which pyenv will
-recognize each time you `cd` into it, and will automatically make the Python
-version mentioned in it the default one for your shell (if you `cd` out of
-the directory, the Python version will go back to normal).
-
-Finally, you need to install the project dependencies. In the project root,
-execute `pip install -r requirements.txt`.
-
-If you want to run the supplied unit tests you need to install additional
-dependencies: `pip install -r requirements/dev.txt`. This will install all
-the regular dependencies plus the ones needed for running the tests. The
-tests can then be run with `pytest`. As stated above, it is not required to 
-have Redis running nor access to the data API, since these services are all 
-mocked.
-
-When you're done, you can delete the virtualenv with this command:
-`pyenv virtualenv-delete acmemegastore`
+Pipenv will install Python 3.6.4 via Pyenv, if it is not yet installed,
+create a new virtual environment for the project using the specified Python 
+version, and install all the dependencies into it.
 
 
 #### Installing Redis
@@ -362,8 +312,8 @@ After you're done, you can remove the container and the Redis image
 #### Running the application
 
 With all the Python packages installed and Redis running, you're ready to
-finally launch the application. In the project root, execute `python -m acme
-.server`.
+finally launch the application. In the project root, execute `pipenv run python
+ -m acme.server`.
 
 For this method, the API is available at
 `http://0.0.0.0:8080/api/recent_purchases/` instead of
