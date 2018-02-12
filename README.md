@@ -1,3 +1,4 @@
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/60bf2812dbb54e03ace2a9baa9f205dd)](https://app.codacy.com/app/borfast/acmemegastore?utm_source=github.com&utm_medium=referral&utm_content=borfast/acmemegastore&utm_campaign=badger)
 [![Build Status](https://travis-ci.org/borfast/acmemegastore.svg?branch=master)](https://travis-ci.org/borfast/acmemegastore)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/borfast/acmemegastore/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/borfast/acmemegastore/?branch=master)
 
