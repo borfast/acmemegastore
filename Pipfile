@@ -1,12 +1,9 @@
 [[source]]
-
 url = "https://pypi.python.org/simple"
 verify_ssl = true
 name = "pypi"
 
-
 [packages]
-
 aiohttp = "*"
 uvloop = "*"
 cchardet = "*"
@@ -15,10 +12,9 @@ aioredis = "*"
 faker = "*"
 arrow = "*"
 flask = "*"
-
+idna-ssl = "*"
 
 [dev-packages]
-
 asynctest = "*"
 coverage = "*"
 flake8 = "*"
@@ -31,5 +27,4 @@ pytest-xdist = "*"
 codacy-coverage = "*"
 
 [requires]
-
 python_version = "3.7"
